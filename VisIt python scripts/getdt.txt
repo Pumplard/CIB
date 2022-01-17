@@ -1,0 +1,19 @@
+#prints (x,y,Z,t) of a single point each frame to results.txt, set elem
+#paste this as a VisIt command
+#requires lag file mesh to be drawn in VisIt
+center = 0 #sphere center node, 0 = sphere 1 center, 860 = sphere 2 center, 1720
+frames = TimeSliderGetNStates() #number of frames
+Query("NumNodes", use_actual_data=1)
+points = int(GetQueryOutputValue()) #number of points
+
+SetTimeSliderState(0) #sets time slider to 0
+f = open("results.txt", "w")
+for i in range(frames):
+    Query("Node Coords", domain=0, element=center, use_global_id=0)
+    t2 = GetQueryOutputValue()
+    f.write(str(t2) + ", ")
+    Query("Time")
+    t2 = GetQueryOutputValue()
+    f.write(str(t2) + "\n")
+    TimeSliderNextState()
+f.close()

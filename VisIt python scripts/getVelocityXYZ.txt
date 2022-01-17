@@ -1,0 +1,168 @@
+#prints max x, y, z of u vectors each frame to a file.
+#first creates the plots needed to get x, y, z data
+#paste this as a VisIt command, requires lag file
+
+#This portion was created using the "record" feature in the VisIt command section
+def createPlots():
+    DeleteAllPlots()
+    ScatterAtts = ScatterAttributes()
+    ScatterAtts.var1 = "U_x"
+    ScatterAtts.var1Role = ScatterAtts.Coordinate0  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var1MinFlag = 0
+    ScatterAtts.var1MaxFlag = 0
+    ScatterAtts.var1Min = 0
+    ScatterAtts.var1Max = 1
+    ScatterAtts.var1Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var1SkewFactor = 1
+    ScatterAtts.var2Role = ScatterAtts.Coordinate1  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var2 = "default"
+    ScatterAtts.var2MinFlag = 0
+    ScatterAtts.var2MaxFlag = 0
+    ScatterAtts.var2Min = 0
+    ScatterAtts.var2Max = 1
+    ScatterAtts.var2Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var2SkewFactor = 1
+    ScatterAtts.var3Role = ScatterAtts.NONE  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var3 = "default"
+    ScatterAtts.var3MinFlag = 0
+    ScatterAtts.var3MaxFlag = 0
+    ScatterAtts.var3Min = 0
+    ScatterAtts.var3Max = 1
+    ScatterAtts.var3Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var3SkewFactor = 1
+    ScatterAtts.var4Role = ScatterAtts.NONE  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var4 = "default"
+    ScatterAtts.var4MinFlag = 0
+    ScatterAtts.var4MaxFlag = 0
+    ScatterAtts.var4Min = 0
+    ScatterAtts.var4Max = 1
+    ScatterAtts.var4Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var4SkewFactor = 1
+    ScatterAtts.pointSize = 0.05
+    ScatterAtts.pointSizePixels = 1
+    ScatterAtts.pointType = ScatterAtts.Point  # Box, Axis, Icosahedron, Octahedron, Tetrahedron, SphereGeometry, Point, Sphere
+    ScatterAtts.scaleCube = 1
+    ScatterAtts.colorType = ScatterAtts.ColorByForegroundColor  # ColorByForegroundColor, ColorBySingleColor, ColorByColorTable
+    ScatterAtts.singleColor = (255, 0, 0, 255)
+    ScatterAtts.colorTableName = "Default"
+    ScatterAtts.invertColorTable = 0
+    ScatterAtts.legendFlag = 1
+    SetDefaultPlotOptions(ScatterAtts)
+    AddPlot("Scatter", "U_x", 1, 1)
+    ScatterAtts = ScatterAttributes()
+    ScatterAtts.var1 = "U_y"
+    ScatterAtts.var1Role = ScatterAtts.Coordinate0  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var1MinFlag = 0
+    ScatterAtts.var1MaxFlag = 0
+    ScatterAtts.var1Min = 0
+    ScatterAtts.var1Max = 1
+    ScatterAtts.var1Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var1SkewFactor = 1
+    ScatterAtts.var2Role = ScatterAtts.Coordinate1  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var2 = "default"
+    ScatterAtts.var2MinFlag = 0
+    ScatterAtts.var2MaxFlag = 0
+    ScatterAtts.var2Min = 0
+    ScatterAtts.var2Max = 1
+    ScatterAtts.var2Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var2SkewFactor = 1
+    ScatterAtts.var3Role = ScatterAtts.NONE  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var3 = "default"
+    ScatterAtts.var3MinFlag = 0
+    ScatterAtts.var3MaxFlag = 0
+    ScatterAtts.var3Min = 0
+    ScatterAtts.var3Max = 1
+    ScatterAtts.var3Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var3SkewFactor = 1
+    ScatterAtts.var4Role = ScatterAtts.NONE  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var4 = "default"
+    ScatterAtts.var4MinFlag = 0
+    ScatterAtts.var4MaxFlag = 0
+    ScatterAtts.var4Min = 0
+    ScatterAtts.var4Max = 1
+    ScatterAtts.var4Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var4SkewFactor = 1
+    ScatterAtts.pointSize = 0.05
+    ScatterAtts.pointSizePixels = 1
+    ScatterAtts.pointType = ScatterAtts.Point  # Box, Axis, Icosahedron, Octahedron, Tetrahedron, SphereGeometry, Point, Sphere
+    ScatterAtts.scaleCube = 1
+    ScatterAtts.colorType = ScatterAtts.ColorByForegroundColor  # ColorByForegroundColor, ColorBySingleColor, ColorByColorTable
+    ScatterAtts.singleColor = (255, 0, 0, 255)
+    ScatterAtts.colorTableName = "Default"
+    ScatterAtts.invertColorTable = 0
+    ScatterAtts.legendFlag = 1
+    SetDefaultPlotOptions(ScatterAtts)
+    AddPlot("Scatter", "U_y", 1, 1)
+    ScatterAtts = ScatterAttributes()
+    ScatterAtts.var1 = "U_z"
+    ScatterAtts.var1Role = ScatterAtts.Coordinate0  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var1MinFlag = 0
+    ScatterAtts.var1MaxFlag = 0
+    ScatterAtts.var1Min = 0
+    ScatterAtts.var1Max = 1
+    ScatterAtts.var1Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var1SkewFactor = 1
+    ScatterAtts.var2Role = ScatterAtts.Coordinate1  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var2 = "U_z"
+    ScatterAtts.var2MinFlag = 0
+    ScatterAtts.var2MaxFlag = 0
+    ScatterAtts.var2Min = 0
+    ScatterAtts.var2Max = 1
+    ScatterAtts.var2Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var2SkewFactor = 1
+    ScatterAtts.var3Role = ScatterAtts.NONE  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var3 = "default"
+    ScatterAtts.var3MinFlag = 0
+    ScatterAtts.var3MaxFlag = 0
+    ScatterAtts.var3Min = 0
+    ScatterAtts.var3Max = 1
+    ScatterAtts.var3Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var3SkewFactor = 1
+    ScatterAtts.var4Role = ScatterAtts.NONE  # Coordinate0, Coordinate1, Coordinate2, Color, NONE
+    ScatterAtts.var4 = "default"
+    ScatterAtts.var4MinFlag = 0
+    ScatterAtts.var4MaxFlag = 0
+    ScatterAtts.var4Min = 0
+    ScatterAtts.var4Max = 1
+    ScatterAtts.var4Scaling = ScatterAtts.Linear  # Linear, Log, Skew
+    ScatterAtts.var4SkewFactor = 1
+    ScatterAtts.pointSize = 0.05
+    ScatterAtts.pointSizePixels = 1
+    ScatterAtts.pointType = ScatterAtts.Point  # Box, Axis, Icosahedron, Octahedron, Tetrahedron, SphereGeometry, Point, Sphere
+    ScatterAtts.scaleCube = 1
+    ScatterAtts.colorType = ScatterAtts.ColorByForegroundColor  # ColorByForegroundColor, ColorBySingleColor, ColorByColorTable
+    ScatterAtts.singleColor = (255, 0, 0, 255)
+    ScatterAtts.colorTableName = "Default"
+    ScatterAtts.invertColorTable = 0
+    ScatterAtts.legendFlag = 1
+    SetDefaultPlotOptions(ScatterAtts)
+    AddPlot("Scatter", "U_z", 1, 1)
+    DrawPlots()
+
+createPlots()
+frames = TimeSliderGetNStates() #number of frames
+Query("NumNodes", use_actual_data=1)
+points = int(GetQueryOutputValue()) #number of points
+SetTimeSliderState(0) #sets time slider to 0
+
+#writes data to file
+f = open("results.txt", "w")
+for i in range(frames):
+    SetActivePlots((0, 2))
+    SetActivePlots(0)
+    Query("Max", use_actual_data=0)
+    out = GetQueryOutputValue()
+    f.write(str(out)+", ")
+    SetActivePlots((0, 1))
+    SetActivePlots(1)
+    Query("Max", use_actual_data=0)
+    out = GetQueryOutputValue()
+    f.write(str(out)+", ")
+    SetActivePlots((1, 2))
+    SetActivePlots(2)
+    Query("Max", use_actual_data=0)
+    out = GetQueryOutputValue()
+    f.write(str(out)+"\n")
+    TimeSliderNextState()
+f.close()
+DeleteAllPlots()
